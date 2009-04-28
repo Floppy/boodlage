@@ -15,5 +15,5 @@ while(1):
   # set pitch
   os.system("boodle-event.py pitch {0}".format(f))
   # Wait
-  time.sleep(15)
+  time.sleep(60)
   
