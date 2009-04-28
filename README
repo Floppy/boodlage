@@ -1,24 +1,26 @@
 Common:
+-------
 
-boodle-mgr.py install http://boodler.org/lib/org.boodler.inspect.1.0.boop
-boodle-mgr.py install http://boodler.org/lib/org.boodler.listen.1.0.boop
-boodle-mgr.py install http://boodler.org/lib/org.boodler.manage.1.0.boop
-boodle-mgr.py install http://boodler.org/lib/org.boodler.play.1.0.boop
+boodle-mgr.py install http://boodler.org/lib/org.boodler.inspect.1.0.boop (once only)
+boodle-mgr.py install http://boodler.org/lib/org.boodler.listen.1.0.boop (once only)
+boodle-mgr.py install http://boodler.org/lib/org.boodler.play.1.0.boop (once only)
 
 Drip:
 -----
 
-boodle-mgr.py install http://boodler.org/lib/org.boodler.old.water.1.0.boop
-
+boodle-mgr.py install http://boodler.org/lib/org.boodler.old.water.1.0.boop (once only)
 boodler.py --external soundscapes/drip/ org.boodlage.drip/Drip --listen
-
 boodle-event.py delay <whatever delay you want>
 
 Sine:
 -----
 
-boodle-mgr.py install http://boodler.org/lib/org.boodler.puretone.2.0.boop
-
+boodle-mgr.py install http://boodler.org/lib/org.boodler.puretone.2.0.boop (once only)
 boodler.py --external soundscapes/sine/ org.boodlage.sine/Sine --listen
-
 boodle-event.py pitch <whatever pitch you want>
+
+Full on Boodlage:
+-----------------
+
+Run the sine boodler soundscape as above, then run bin/boodlage.py. The sine frequency will
+change with the national grid.
