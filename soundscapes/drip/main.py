@@ -3,7 +3,7 @@ from boodle import agent
 
 water = bimport('org.boodler.old.water')
 
-class Simple(agent.Agent):
+class Drip(agent.Agent):
 
   def init(self):
     self.delay = 1
