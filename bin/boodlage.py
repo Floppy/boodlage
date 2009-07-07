@@ -1,17 +1,20 @@
 #!/usr/bin/env python
 
-import urllib, time, re, telnetlib
+import urllib, time, re, telnetlib, sys
+import ConfigParser
 
-url = "http://www.nationalgrid.com/ngrealtime/realtime/systemdata.aspx"
-match = ".*Frequency: (.*?)Hz.*"
-in_min = 49.8
-in_max = 50.2
-interval = 15
+config = ConfigParser.RawConfigParser()
+config.read(sys.argv[1:])
 
-host = "localhost"
-event = "pitch"
-out_min = 140.0
-out_max = 260.0
+url = config.get('Main', 'url')
+match = config.get('Main', 'match')
+in_min = config.getfloat('Main', 'in_min')
+in_max = config.getfloat('Main', 'in_max')
+interval = config.getfloat('Main', 'interval')
+host = config.get('Main', 'host')
+event = config.get('Main', 'event')
+out_min = config.getfloat('Main', 'out_min')
+out_max = config.getfloat('Main', 'out_max')
 
 in_range = in_max - in_min
 out_range = out_max - out_min
@@ -26,6 +29,7 @@ while(1):
   x = float(f) - in_min
   f = out_min + (x * multiplier)
   # set pitch
+  print("{0} {1}".format(event, f))
   tn = telnetlib.Telnet(host, 31863)
   tn.write("{0} {1}\n".format(event, f))
   # Wait
